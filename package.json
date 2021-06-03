@@ -1,0 +1,36 @@
+{
+  "name": "Loskop",
+  "private": true,
+  "scripts": {
+    "dev": "gridsome develop",
+    "explore": "gridsome explore",
+    "build": "gridsome build",
+		"server": "node ./server/index.js"
+  },
+  "dependencies": {
+    "@gridsome/plugin-sitemap": "^0.4.0",
+    "@gridsome/source-graphql": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "date-fns": "^2.21.1",
+    "dotenv": "^8.2.0",
+    "duration-pretty": "^0.1.0",
+    "express": "^4.17.1",
+    "generative-radio": "github:dimitriaatos/generative-radio",
+    "gridsome": "^0.7.23",
+    "gridsome-plugin-i18n": "^1.6.0",
+    "path": "^0.12.7",
+    "remove-fbclid": "^0.9.6",
+    "vue-aspect-ratio": "^0.1.1",
+    "vue-material-design-icons": "^4.11.0",
+    "vuex": "^3.6.2",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.25.0",
+    "eslint-plugin-jsonc": "^1.2.1",
+    "eslint-plugin-vue": "^7.8.0",
+    "stylelint": "^13.13.0",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-order": "^4.1.0"
+  }
+}
