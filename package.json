@@ -2,11 +2,12 @@
   "name": "Loskop",
   "private": true,
   "scripts": {
-    "dev": "gridsome develop",
+		"dev": "gridsome develop",
     "explore": "gridsome explore",
     "build": "gridsome build",
 		"server": "node ./server/index.js",
-		"webworker": "node ./webworker/index.js"
+		"webworker": "node ./webworker/index.js",
+		"start": "concurrently \"npm run server\" \"npm run webworker\""
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.4.0",
