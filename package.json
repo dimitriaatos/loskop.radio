@@ -5,7 +5,8 @@
     "dev": "gridsome develop",
     "explore": "gridsome explore",
     "build": "gridsome build",
-		"server": "node ./server/index.js"
+		"server": "node ./server/index.js",
+		"webworker": "node ./webworker/index.js"
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.4.0",
