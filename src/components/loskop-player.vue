@@ -308,7 +308,6 @@ a {
 
 .producers a {
 	font-style: italic;
-	/* text-decoration: underline; */
 	border-bottom: 1px solid black;
 }
 
@@ -419,10 +418,6 @@ input[type="range"]::-ms-thumb {
 } */
 
 @media screen and (max-width: 650px) {
-	.title {
-		letter-spacing: 0.3vw;
-	}
-
 	.progressBar {
 		grid-row: 1 / span 1;
 		grid-column: 1 / span 4;
@@ -433,6 +428,7 @@ input[type="range"]::-ms-thumb {
 	}
 
 	.title {
+		letter-spacing: 0.1vw;
 		grid-column: 2 / span 2;
 		justify-self: center;
 	}

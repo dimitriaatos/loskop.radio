@@ -71,7 +71,7 @@ h1 {
 	/* font-size: 1.5vw; */
 	font-size: 1.2rem;
 	font-weight: 700;
-	letter-spacing: 0.4vw;
+	letter-spacing: 0.1vw;
 	white-space: nowrap;
 	width: 100%;
 }
@@ -122,8 +122,6 @@ h1 {
 .layout {
 	max-width: 1000px;
 	width: 90%;
-	/* display: flex; */
-	/* flex-direction: column; */
 }
 
 header {
