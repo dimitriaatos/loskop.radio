@@ -1,0 +1,43 @@
+{
+  "pieces": [{
+    "elements": [
+      {
+        "search": {
+          "text": "wind chimes",
+          "options": {
+            "results": 50,
+            "filter": {
+              "tag": "chimes",
+              "duration": [0, 40, 320]
+
+            },
+            "sort": "score"
+          }
+        },
+        "structure": {
+          "metro": 30,
+          "fade": 0.2
+        }
+      },
+      {
+        "search": {
+          "text": "chimes",
+          "options": {
+            "results": 35,
+            "filter": {
+              "tag": "field-recording",
+              "duration": [0, 50, 400]
+            },
+            "sort": "score"
+          }
+        },
+        "structure": {
+          "mono": true,
+          "fade": 0.3
+        }
+      }
+    ],
+    "duration": 300,
+    "fade": 1
+  }]
+}

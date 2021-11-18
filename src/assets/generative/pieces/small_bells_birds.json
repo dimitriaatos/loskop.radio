@@ -1,0 +1,41 @@
+{
+	"pieces": [
+		{
+			"elements": [{
+				"search": {
+					"sound": 339809,
+					"options": {
+						"results": 150,
+						"filter": {
+							"duration": [10, 20]
+						},
+						"sort": "rating_desc"
+					}
+				},
+				"structure": {
+					"metro": 2,
+					"fade": 0.4
+				}
+			},
+			{
+				"search": {
+					"text": "small birds",
+					"options": {
+						"results": 150,
+						"filter": {
+							"tag": "field-recording",
+							"duration": [10, 360]
+						},
+						"sort": "rating_desc"
+					}
+				},
+				"structure": {
+					"mono": true,
+					"fade": 0.5
+			}
+			}],
+			"duration": 320,
+			"fade": 30
+		}
+	]
+}

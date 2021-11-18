@@ -1,0 +1,24 @@
+{
+    "pieces": [
+        {
+            "elements": [{
+                "search": {
+                    "text": "narrated soundwalk",
+                    "options": {
+                        "results": 150,
+                        "filter": {
+                            "duration": ["0","*", "*"]
+                        },
+                        "sort": "score"
+                    }
+                },
+                "structure": {
+                    "fade": 0.15,
+                    "metro": 30
+                }
+            }],
+            "duration": 440,
+            "fade": 10
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+	"pieces": [
+		{
+			"elements": [{
+			"search": {
+				"text": "",
+				"options": {
+					"results": 150,
+					"filter": {
+						"tag": "field-recording voices",
+						"duration": ["*",10, 1200]
+					},
+					"sort": "score"
+				}
+			},
+			"structure": {
+				"mono": true,
+				"fade": 0.3}
+			}
+			],
+			"duration": 200,
+			"fade": 5
+		}
+	]
+}

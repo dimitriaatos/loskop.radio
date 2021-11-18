@@ -1,0 +1,42 @@
+{
+
+	"pieces": [
+		{
+			"elements": [
+				{
+				"search": {
+					"text": "waterfall",
+					"options": {
+						"results": 150,
+						"filter": {
+							"tag": "field-recording",
+							"duration": ["*", 90 , 600]
+						},
+						"sort": "score"
+					}
+				},
+				"structure": {
+					"mono": true,
+					"fade": 0.5
+				}
+			},
+			{"search": {
+				"sound": 130198,
+				"options": {
+					"results": 150,
+					"filter": {
+						"duration": [1, 1200]
+					},
+					"sort": "score"
+				}
+			},
+			"structure": {
+				"mono": true,
+				"fade": 0.2}
+			}
+			],
+			"duration": 320,
+			"fade": 25
+		}
+	]
+}

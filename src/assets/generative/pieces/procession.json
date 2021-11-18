@@ -1,0 +1,27 @@
+{
+	"pieces": [
+		{
+			"elements": [{
+				"search": {
+					"text": "procession",
+					"options": {
+						"results": 150,
+						"filter": {
+							"tag": "field-recording",
+							"duration": [10, 200]
+						},
+						"sort": "score"
+					}
+				},
+				"structure": {
+					"mono": true,
+					"fade": 0.1
+				}
+			}
+
+			],
+			"duration": 600,
+			"fade": 1
+		}
+	]
+}

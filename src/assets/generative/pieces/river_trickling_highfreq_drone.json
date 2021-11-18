@@ -1,0 +1,70 @@
+{
+	"pieces": [
+		{
+			"elements": [{
+				"search": {
+					"text": "river",
+					"options": {
+						"results": 150,
+						"filter": {
+							"tag": "stream",
+							"duration": [1,30, 200]
+						},
+						"sort": "rating_asc"
+					}
+				},
+				"structure": {
+					"mono": true,
+					"fade": 0.5
+				}
+			},
+			{"search": {
+				"text": "stream",
+				"options": {
+					"results": 150,
+					"filter": {
+						"tag": "trickle",
+						"duration": [1,40, 200]
+					},
+					"sort": "rating_asc"
+				}
+			},
+			"structure": {
+				"mono": true,
+				"fade": 0.5}
+			},
+			{"search": {
+				"text": "water resonance",
+				"options": {
+					"results": 150,
+					"filter": {
+						"tag": "field-recording",
+						"duration": [0.5,40, 200]
+					},
+					"sort": "score"
+				}
+			},
+			"structure": {
+				"metro": 10,
+				"fade": 0.1}
+			},
+			{"search": {
+				"sound": "279340",
+				"options": {
+					"results": 150,
+					"filter": {
+						"duration": [0.5,30, 200]
+					},
+					"sort": "score"
+				}
+			},
+			"structure": {
+				"metro": 7,
+				"fade": 0.1}
+			}
+			],
+			"duration": 540,
+			"fade": 25
+		}
+	]
+}
