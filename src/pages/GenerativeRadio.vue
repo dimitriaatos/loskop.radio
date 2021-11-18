@@ -35,7 +35,7 @@ export default {
 			return {
 				id: 'generative',
 				slug: this.$route.path,
-				title: 'GENERATIVE RADIO',
+				title: 'GENERATIVE SOUNDSCAPE RADIO',
 				description: this.$page.directus.items.generative.description,
 				date: 'LIVE NOW!',
 				isLive: true,
@@ -62,7 +62,7 @@ export default {
 		// console.log(this.$page.directus.items.generative.pieces)
 	},
 	metaInfo: {
-		title: 'Generative radio - Loskop',
+		title: 'Generative soundscape radio - Loskop',
 		meta: [
 			{
 				property: 'og:image',
