@@ -1,0 +1,27 @@
+{
+	"pieces": [
+		{
+			"elements": [
+			{
+				"search": {
+					"text": "\"fireplace\"",
+					"options": {
+						"results": 150,
+						"filter": {
+							"tag": "fireplace",
+							"duration": [10, 150]
+						},
+						"sort": "score"
+					}
+				},
+				"structure": {
+					"metro": 4,
+					"fade": 0.4
+				}
+			}
+		],
+			"duration": 100,
+			"fade": 5
+		}
+	]
+}

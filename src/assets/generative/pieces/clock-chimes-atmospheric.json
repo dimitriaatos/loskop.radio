@@ -3,39 +3,41 @@
 		{
 			"elements": [{
 				"search": {
-					"sound": 339809,
+					"text": "clock chime",
 					"options": {
 						"results": 150,
 						"filter": {
-							"duration": [10, 20]
+							"tag": "clock",
+							"duration": [1, 25, 240]
 						},
 						"sort": "rating_desc"
 					}
 				},
 				"structure": {
-					"metro": 2,
-					"fade": 0.4
+					"fade": 0.2,
+					"metro": 3
 				}
 			},
 			{
 				"search": {
-					"text": "small birds",
+					"text": "clock chime",
 					"options": {
 						"results": 150,
 						"filter": {
-							"tag": "field-recording",
-							"duration": [10, 360]
+							"tag": "tick-tock",
+							"duration": [1, 25, 240]
 						},
-						"sort": "rating_desc"
+						"sort": "score"
 					}
 				},
 				"structure": {
-					"mono": true,
-					"fade": 0.5
+					"fade": 0.3,
+					"metro": 5
+				}
 			}
-			}],
-			"duration": 320,
-			"fade": 15
+		],
+			"duration": 120,
+			"fade": 5
 		}
 	]
 }

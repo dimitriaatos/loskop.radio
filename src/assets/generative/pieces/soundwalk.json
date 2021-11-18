@@ -17,8 +17,8 @@
                     "metro": 30
                 }
             }],
-            "duration": 350,
-            "fade": 90
+            "duration": 180,
+            "fade": 15
         }
     ]
 }

@@ -1,0 +1,42 @@
+{
+	"pieces": [
+		{
+			"elements": [{
+				"search": {
+					"text": "Rattle Sound Collection",
+					"options": {
+						"results": 100,
+						"filter": {
+							"tag": "grains",
+							"duration": [1, 25, 280]
+						},
+						"sort": "score"
+					}
+				},
+				"structure": {
+					"fade": 0.3,
+					"mono": true
+				}
+			},
+			{
+				"search": {
+					"text": "\"Electric Birds\"",
+					"options": {
+						"results": 100,
+						"filter": {
+							"tag": "birds",
+							"duration": [1, 25, 280]
+						},
+						"sort": "score"
+					}
+				},
+				"structure": {
+					"fade": 0.25,
+					"mono": true
+				}
+			}],
+			"duration": 50,
+			"fade": 10
+		}
+	]
+}

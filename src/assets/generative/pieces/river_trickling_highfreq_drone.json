@@ -63,8 +63,8 @@
 				"fade": 0.1}
 			}
 			],
-			"duration": 540,
-			"fade": 25
+			"duration": 250,
+			"fade": 9
 		}
 	]
 }

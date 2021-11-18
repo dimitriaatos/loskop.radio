@@ -3,39 +3,39 @@
 		{
 			"elements": [{
 				"search": {
-					"sound": 339809,
+					"text": "foley",
 					"options": {
 						"results": 150,
 						"filter": {
-							"duration": [10, 20]
+							"tag": "close",
+							"duration": [1, 5, "*"]
 						},
-						"sort": "rating_desc"
+						"sort": "score"
 					}
 				},
 				"structure": {
-					"metro": 2,
-					"fade": 0.4
+					"fade": 0.01,
+					"metro": 2
 				}
 			},
 			{
 				"search": {
-					"text": "small birds",
+					"text": "surface",
 					"options": {
 						"results": 150,
 						"filter": {
-							"tag": "field-recording",
-							"duration": [10, 360]
+							"duration": [1, 15, "*"]
 						},
-						"sort": "rating_desc"
+						"sort": "score"
 					}
 				},
 				"structure": {
-					"mono": true,
 					"fade": 0.5
+				}
 			}
-			}],
-			"duration": 320,
-			"fade": 15
+		],
+			"duration": 60,
+			"fade": 3
 		}
 	]
 }

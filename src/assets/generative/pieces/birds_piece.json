@@ -15,7 +15,8 @@
 						}
 					},
 					"structure":{
-						"metro":30
+						"metro":30,
+						"fade":0.001
 					}
 				},
 				{
@@ -30,11 +31,12 @@
 						}
 					},
 					"structure":{
-						"metro": 35
+						"metro": 35,
+						"fade": 0.001
 					}
 				}
 			],
-			"duration": 180,
-            "fade":1
+			"duration": 300,
+            "fade":10
 		}]
 }

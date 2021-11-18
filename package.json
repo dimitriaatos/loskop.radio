@@ -21,6 +21,7 @@
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "path": "^0.12.7",
+    "pretty-data": "^0.40.0",
     "remove-fbclid": "^0.9.6",
     "vue-aspect-ratio": "^0.1.1",
     "vue-material-design-icons": "^4.13.0",

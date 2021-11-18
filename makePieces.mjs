@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-
+import { pd } from 'pretty-data'
 const dir = './src/assets/generative/pieces'
 
 const pieces = fs.readdirSync(dir).reduce((accum, file) => {
@@ -12,4 +12,4 @@ const pieces = fs.readdirSync(dir).reduce((accum, file) => {
 }, [])
 
 
-fs.writeFileSync('./src/assets/generative/pieces.json', JSON.stringify({pieces}))
+fs.writeFileSync('./src/assets/generative/pieces.json', pd.json({pieces}))

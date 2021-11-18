@@ -36,7 +36,7 @@
                 }
             }
         ],
-        "duration": 600,
-		"fade": 15
+        "duration": 300,
+		"fade": 8
     }]
 }
