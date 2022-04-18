@@ -2,6 +2,17 @@
 	<div id="app">
 		<router-view />
 		<loskop-player class="player" />
+		<!-- <script
+			data-goatcounter="https://loskopradio.goatcounter.com/count"
+			async
+			src="https://gc.zgo.at/count.js"
+		/> -->
+		<component
+			is="script"
+			src="https://gc.zgo.at/count.js"
+			async="true"
+			data-goatcounter="https://loskopradio.goatcounter.com/count"
+		/>
 	</div>
 </template>
 

@@ -8,17 +8,31 @@ import store from '~/store'
 
 import PlayIcon from 'vue-material-design-icons/Play.vue'
 import PauseIcon from 'vue-material-design-icons/Pause.vue'
-import FileOutline from 'vue-material-design-icons/FileOutline.vue'
+import FileOutlineIcon from 'vue-material-design-icons/FileOutline.vue'
+import FileDownloadOutlineIcon from 'vue-material-design-icons/FileDownloadOutline.vue'
 
 // import 'vue-material-design-icons/styles.css'
 // import '~/assets/reset.css'
 
 export default function (Vue, { router, head, isClient, appOptions }) {
 
-	Vue.component('VueAspectRatio', VueAspectRatio)
-	Vue.component('PlayIcon', PlayIcon)
-	Vue.component('PauseIcon', PauseIcon)
-	Vue.component('FileOutlineIcon', FileOutline)
+	Object.entries(
+		{
+			VueAspectRatio,
+			PlayIcon,
+			PauseIcon,
+			FileOutlineIcon,
+			FileDownloadOutlineIcon
+		}
+	).map(
+		([key, value]) => {
+			Vue.component(key, value)
+		}
+	)
+	// Vue.component('PlayIcon', PlayIcon)
+	// Vue.component('PauseIcon', PauseIcon)
+	// Vue.component('FileOutlineIcon', FileOutlineIcon)
+	// Vue.component('FileDownloadOutlineIcon', FileDownloadOutlineIcon)
 	Vue.use(Vuex)
 	appOptions.store = store
 

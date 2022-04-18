@@ -13,8 +13,12 @@ module.exports = async ({ graphql, createPage }) => {
 					}
 					shows {
 						shows_id {
+							id
 							title
 							slug
+							audio {
+								id
+							}
 							artwork {
 								id
 							}

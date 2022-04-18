@@ -13,6 +13,31 @@
 					>SUPPORT US</a>
 					<form
 						class="subscribe"
+						action="https://tinyletter.com/loskopradio"
+						method="post"
+						target="popupwindow"
+						onsubmit="window.open('https://tinyletter.com/loskopradio', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+					>
+						<input
+							id="tlemail"
+							type="text"
+							class="email"
+							name="email"
+							placeholder="e-mail"
+						>
+						<input
+							type="hidden"
+							value="1"
+							name="embed"
+						>
+						<input
+							type="submit"
+							class="submit"
+							value="SUBSCRIBE!"
+						>
+					</form>
+					<!-- <form
+						class="subscribe"
 						:class="{ ignoreClick: subStatus != 'SUBSCRIBE!' }"
 						@submit="subscribe"
 					>
@@ -30,7 +55,7 @@
 							class="submit"
 							:value="subStatus"
 						>
-					</form>
+					</form> -->
 					<div class="social">
 						<a
 							:href="facebook"

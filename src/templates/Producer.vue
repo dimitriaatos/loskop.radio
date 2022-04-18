@@ -51,7 +51,7 @@ export default {
 		}
 	},
 	mounted(){
-		console.log(this.$context.shows.map(show => show.shows_id))
+		// console.log(this.$context.shows.map(show => show.shows_id))
 	},
 	methods: {
 		formatDate: (string) => format(new Date(string), 'dd.MM.yyyy'),
@@ -79,7 +79,19 @@ main {
 }
 
 ul {
+	/* display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-content: flex-start; */
 	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(calc(180px + 10vmin), 100%), 1fr));
+	grid-gap: calc(var(--standard-spacing) * 2);
+}
+
+ul > li {
+	/* align-self: center; */
+	justify-self: center;
 }
 
 .avatar {

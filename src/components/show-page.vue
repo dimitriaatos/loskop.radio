@@ -62,6 +62,12 @@
 			target="_blank"
 			class="attachment"
 		><file-outline-icon :size="30" />Program Notes</a>
+		<!-- <a
+			v-if="show.audio && show.audio.id"
+			:href="assets+show.audio.id"
+			download="los.mp3"
+			class="attachment"
+		><file-download-outline-icon :size="30" />Download</a> -->
 		<slot />
 		<div class="space" />
 	</main>
