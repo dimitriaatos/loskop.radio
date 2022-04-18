@@ -15,6 +15,7 @@ module.exports = async ({ graphql, createPage }) => {
 						shows_id {
 							id
 							title
+							date
 							slug
 							audio {
 								id

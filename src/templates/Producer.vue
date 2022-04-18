@@ -14,7 +14,7 @@
 				</div>
 				<ul>
 					<show-card
-						v-for="show in shows"
+						v-for="show in shows.sort((a,b) => b.date - a.date)"
 						:key="show.id"
 						:show="show"
 					/>
@@ -47,7 +47,7 @@ export default {
 			return duration(dur, 'seconds').format('mm\' ss\'\'')
 		},
 		shows() {
-			return this.$context.shows.map(show => show.shows_id)
+			return this.$context.shows.map(show => show.shows_id).sort((a, b) => (new Date(b.date)) - (new Date(a.date)))
 		}
 	},
 	mounted(){
