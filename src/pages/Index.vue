@@ -2,17 +2,7 @@
 	<Layout>
 		<main>
 			<img :src="assets+removeFileExtension($page.directus.items.home.image.filename_disk)">
-			<!-- <div class="content" v-html="$page.directus.items.home.description" /> -->
-			<div class="content">
-				<span>Loskop is the seed of love
-					<br>
-					between a radio atom and a
-					<br>
-					byte that escaped the
-					<br>
-					digital world.
-				</span>
-			</div>
+			<div class="content" v-html="pToSpan($page.directus.items.home.description)" />
 		</main>
 		<div class="space" />
 	</Layout>
@@ -56,12 +46,15 @@ export default {
 	methods: {
 		removeFileExtension(path) {
 			return path.split('.').slice(0, -1).join('.')
-		}
+		},
+		pToSpan(html) {
+			return html.replace(/<\/p>\n<p>/g, '<br/>').replace(/(<\/?)p>/g, '$1span>')
+		},
 	},
 }
 </script>
 
-<style scoped>
+<style>
 main {
 	max-width: 1000px;
 	display: flex;
@@ -101,7 +94,7 @@ img {
 		margin-bottom: 10px;
 	}
 
-	.content span {
+	.content p {
 		font-size: 16px;
 		line-height: 2.7;
 	}
