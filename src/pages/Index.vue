@@ -55,15 +55,6 @@ export default {
 </script>
 
 <style>
-main {
-	max-width: 1000px;
-	display: flex;
-}
-
-img {
-	width: 40vh;
-}
-
 .content {
 	text-align: left;
 	margin: auto;
@@ -81,6 +72,18 @@ img {
 	-ms-box-shadow: 0 0 0 10px #000;
 	-o-box-shadow: 0 0 0 10px #000;
 	box-decoration-break: clone;
+}
+</style>
+
+<style scoped>
+
+main {
+	max-width: 1000px;
+	display: flex;
+}
+
+img {
+	width: 40vh;
 }
 
 @media screen and (max-width: 650px) {
