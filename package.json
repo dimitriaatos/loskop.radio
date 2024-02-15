@@ -1,39 +1,30 @@
 {
-  "name": "Loskop",
+  "name": "nuxt-app",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "gridsome develop",
-    "explore": "gridsome explore",
-    "build": "gridsome build",
-    "server": "node ./server/index.js",
-    "webworker": "node ./webworker/index.js",
-    "start": "concurrently \"npm run server\" \"npm run webworker\""
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@gridsome/plugin-sitemap": "^0.4.0",
-    "@gridsome/source-graphql": "^0.1.0",
-    "body-parser": "^1.19.0",
-    "date-fns": "^2.25.0",
-    "dotenv": "^8.6.0",
-    "duration-pretty": "^0.1.0",
-    "express": "^4.17.1",
-    "generative-radio": "github:dimitriaatos/generative-radio",
-    "gridsome": "^0.7.23",
-    "gridsome-plugin-i18n": "^1.6.0",
+    "@directus/sdk": "^15.0.0",
+    "@pinia/nuxt": "^0.5.1",
+    "date-fns": "^3.3.1",
+    "duration-pretty": "^0.1.1",
+    "nuxt": "^3.10.1",
+    "nuxt-graphql-client": "^0.2.33",
     "path": "^0.12.7",
-    "pretty-data": "^0.40.0",
-    "remove-fbclid": "^0.9.6",
-    "vue-aspect-ratio": "^0.1.1",
-    "vue-material-design-icons": "^4.13.0",
-    "vuex": "^3.6.2",
-    "yaml": "^1.10.2"
+    "pinia": "^2.1.7",
+    "pretty-ms": "^9.0.0",
+    "vue": "^3.4.15",
+    "vue-material-design-icons": "^5.3.0",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-plugin-jsonc": "^1.7.0",
-    "eslint-plugin-vue": "^7.20.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-order": "^4.1.0"
+    "typescript": "^5.3.3",
+    "vue-tsc": "^1.8.27"
   }
 }

@@ -1,0 +1,29 @@
+query Show($slug: String) {
+  items {
+    shows(filter: { slug: { _eq: $slug } }) {
+      id
+      slug
+      title
+      description
+      artwork {
+        id
+      }
+      audio {
+        id
+        duration
+      }
+      date
+      attachment {
+        id
+      }
+      producers {
+        producers_id {
+          id
+          first_name
+          last_name
+          slug
+        }
+      }
+    }
+  }
+}

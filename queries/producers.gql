@@ -1,0 +1,8 @@
+query Producers{
+  items {
+    producers {
+      id
+      slug
+    }
+  }
+}

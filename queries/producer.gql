@@ -1,0 +1,36 @@
+query Producer($slug: String) {
+  items {
+    producers(filter: { slug: { _eq: $slug } }) {
+      id
+      slug
+      first_name
+      last_name
+      description
+      avatar {
+        id
+      }
+      shows {
+        shows_id {
+          id
+          title
+          date
+          slug
+          audio {
+            id
+          }
+          artwork {
+            id
+          }
+          producers {
+            producers_id {
+              first_name
+              last_name
+              slug
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+}

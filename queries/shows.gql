@@ -1,0 +1,32 @@
+query Shows{
+  items {
+    home {
+      image {
+        filename_disk
+      }
+    }
+    shows(sort: "-date") {
+      id
+      title
+      date
+      slug
+      artwork {
+        id
+      }
+      audio {
+        id
+      }
+      attachment {
+        id
+      }
+      producers {
+        producers_id {
+          id
+          first_name
+          last_name
+          slug
+        }
+      }
+    }
+  }
+}

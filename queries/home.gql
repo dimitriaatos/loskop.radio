@@ -1,0 +1,10 @@
+query Home{
+  items {
+    home {
+      image {
+        filename_disk
+      }
+      description
+    }
+  }
+}
