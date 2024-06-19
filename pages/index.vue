@@ -18,6 +18,7 @@ const pToSpan = (html: string): string => {
 
 const response = await GqlHome();
 const { home } = response.items || {};
+console.log(home?.description)
 useHead({
   title: "Loskop Radio",
   meta: [
@@ -30,7 +31,7 @@ useHead({
 });
 </script>
 
-<style scoped>
+<style>
 .content {
   text-align: left;
   margin: auto;
