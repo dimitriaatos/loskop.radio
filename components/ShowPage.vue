@@ -1,12 +1,7 @@
 <template>
   <main>
     <div class="artwork">
-      <img
-        v-if="show?.id === generativeId"
-        src="/generative.jpg"
-        class="image-fit"
-      />
-      <img v-else :src="assets + show?.artwork?.id" class="image-fit" />
+      <img :src="assets + show?.artwork?.id" class="image-fit" />
     </div>
     <div class="infoContainer">
       <div class="playerContainer">
@@ -26,7 +21,7 @@
                     : formatDate(show?.date as string)
                 }}
               </div>
-              <div v-if="show?.id !== generativeId" class="duration">
+              <div v-if="!show?.live" class="duration">
                 {{ formatedDuration }}
               </div>
             </div>
@@ -74,7 +69,7 @@ import IconFileOutline from "vue-material-design-icons/FileOutline.vue";
 import { format } from "date-fns";
 import { duration } from "duration-pretty";
 import { computed } from "vue";
-import { assets, generativeId } from "~/assets/constants";
+import { assets } from "~/assets/constants";
 import { usePlayerStore } from "~/store";
 import type { Show } from "~/types";
 

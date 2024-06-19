@@ -3,6 +3,8 @@ query Show($slug: String) {
     shows(filter: { slug: { _eq: $slug } }) {
       id
       slug
+      live
+      link
       title
       description
       artwork {

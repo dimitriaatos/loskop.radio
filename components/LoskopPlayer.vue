@@ -7,14 +7,14 @@
       crossorigin="anonymus"
       type="audio/mpeg"
       :src="
-        isLive ? 'http://206.189.96.204:8000/radio.mp3' : (show?.audio && assets + show?.audio?.id) as string
+        show?.live ? show?.link : (show?.audio && assets + show?.audio?.id) as string
       "
       @playing="state.loading = false"
       @waiting="state.loading = true"
       @play="isPlaying || playPause()"
       @pause="isPlaying && playPause()"
     />
-    <hr :class="{ live: isLive }" />
+    <hr :class="{ live: show?.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
       <IconPlay v-else-if="!isPlaying" :size="60" />
@@ -25,7 +25,7 @@
         {{ show.title }}
       </NuxtLink>
     </div>
-    <div v-if="isLive" class="producers">
+    <div v-if="show?.live" class="producers">
       LIVE NOW!
       <span class="blink">
         <div class="dot" />
@@ -42,7 +42,7 @@
       </NuxtLink>
     </div>
     <div />
-    <div v-if="isLive" class="progressBar live" />
+    <div v-if="show?.live" class="progressBar live" />
     <input
       v-else
       ref="progressBar"
@@ -53,7 +53,7 @@
       :max="state.max"
       @change="timeChange"
     />
-    <div v-if="!isLive" class="time">
+    <div v-if="!show?.live" class="time">
       <span class="current">{{ formattedTime }}</span
       >/{{ length }}
     </div>
@@ -76,16 +76,12 @@ import { duration } from "duration-pretty";
 import { storeToRefs } from "pinia";
 import IconPause from "vue-material-design-icons/Pause.vue";
 import IconPlay from "vue-material-design-icons/Play.vue";
-import { assets, generativeId } from "~/assets/constants";
+import { assets } from "~/assets/constants";
 import mediaNotification, {
   chromeMetaAdaptor,
 } from "~/assets/mediaNotification";
 import { usePlayerStore } from "~/store";
 import type { Show } from "~/types";
-
-const isLive = computed(() => {
-  return show?.value?.id === generativeId;
-});
 
 const store = usePlayerStore();
 const { playPause } = store;

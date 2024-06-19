@@ -1,8 +1,0 @@
-query Generative{
-  items {
-    generative {
-      description
-      pieces
-    }
-  }
-}

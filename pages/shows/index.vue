@@ -14,7 +14,9 @@ import { assets } from "~/assets/constants";
 import { removeFileExtension } from "~/assets/helpers";
 import type { Show } from "~/types";
 
-const response = await GqlShows();
+const response = await GqlShows({
+  live: false,
+});
 
 const { home, shows } = response?.items || {};
 
