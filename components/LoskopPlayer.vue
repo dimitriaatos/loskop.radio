@@ -17,8 +17,13 @@
     <hr :class="{ live: show?.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
-      <IconPlay v-else-if="!isPlaying" :size="60" />
-      <IconPause v-else :size="60" />
+      <Icon
+        v-else-if="!isPlaying"
+        name="i-ic-baseline-play-arrow"
+        size="3em"
+        mode="svg"
+      />
+      <Icon v-else name="i-ic-baseline-pause" size="3em" mode="svg" />
     </button>
     <div class="title">
       <NuxtLink :to="`/shows/${show.slug}/`">
@@ -74,8 +79,6 @@
 <script setup lang="ts">
 import { duration } from "duration-pretty";
 import { storeToRefs } from "pinia";
-import IconPause from "vue-material-design-icons/Pause.vue";
-import IconPlay from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import mediaNotification, {
   chromeMetaAdaptor,

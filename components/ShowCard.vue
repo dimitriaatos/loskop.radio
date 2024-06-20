@@ -24,16 +24,19 @@
         </div>
       </div>
       <button class="play" @click="playPause(show as Show)">
-        <IconPlay v-if="!thisIsPlaying" :size="50" />
-        <IconPause v-else :size="50" />
+        <Icon
+          v-if="!thisIsPlaying"
+          name="i-ic-baseline-play-arrow"
+          size="3em"
+          mode="svg"
+        />
+        <Icon v-else name="i-ic-baseline-pause" size="3em" mode="svg" />
       </button>
     </div>
   </li>
 </template>
 
 <script setup lang="ts">
-import IconPause from "vue-material-design-icons/Pause.vue";
-import IconPlay from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import { usePlayerStore } from "~/store";
 import type { Show } from "~/types";

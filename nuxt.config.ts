@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
-  modules: ["nuxt-graphql-client", "@pinia/nuxt"],
+  modules: ["nuxt-graphql-client", "@pinia/nuxt", "@nuxt/icon"],
   typescript: {
     typeCheck: true,
   },

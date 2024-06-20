@@ -8,8 +8,18 @@
         <div class="player">
           <div class="playContainer">
             <button class="play" @click="playPause(show)">
-              <IconPlay v-if="!isThisPlaying(show?.id as string)" :size="70" />
-              <IconPause v-else :size="70" />
+              <Icon
+                v-if="!isThisPlaying(show?.id as string)"
+                name="i-ic-baseline-play-arrow"
+                size="2em"
+                mode="svg"
+              />
+              <Icon
+                v-else
+                name="i-ic-baseline-pause"
+                size="2em"
+                mode="svg"
+              />
             </button>
           </div>
           <div class="info">
@@ -49,23 +59,14 @@
       target="_blank"
       class="attachment"
     >
-      <IconFileOutline :size="30" />Program Notes
+      <Icon name="i-ic-outline-insert-drive-file" size="2em" mode="svg" />Program Notes
     </a>
-    <!-- <a
-			v-if="show.audio && show.audio.id"
-			:href="assets+show.audio.id"
-			download="los.mp3"
-			class="attachment"
-		><FileOutlineIcon :size="30" />Download</a> -->
     <slot />
     <div class="space" />
   </main>
 </template>
 
 <script setup lang="ts">
-import IconPlay from "vue-material-design-icons/Play.vue";
-import IconPause from "vue-material-design-icons/Pause.vue";
-import IconFileOutline from "vue-material-design-icons/FileOutline.vue";
 import { format } from "date-fns";
 import { duration } from "duration-pretty";
 import { computed } from "vue";
