@@ -26,7 +26,7 @@
       <Icon v-else name="i-ic-baseline-pause" size="3em" mode="svg" />
     </button>
     <div class="title">
-      <NuxtLink :to="`/shows/${show.slug}/`">
+      <NuxtLink :to="`/shows/${show.slug}`">
         {{ show.title }}
       </NuxtLink>
     </div>

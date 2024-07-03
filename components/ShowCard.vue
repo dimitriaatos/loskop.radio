@@ -1,13 +1,13 @@
 <template>
   <li class="card">
-    <NuxtLink :to="`/shows/${show?.slug}/`">
+    <NuxtLink :to="`/shows/${show?.slug}`">
       <div class="artwork">
         <img :src="assets + show?.artwork?.id" alt="" class="image-fit" />
       </div>
     </NuxtLink>
     <div class="infoContainer">
       <div class="info">
-        <NuxtLink class="los" :to="`/shows/${show?.slug}/`">
+        <NuxtLink class="los" :to="`/shows/${show?.slug}`">
           <h2 class="title">
             {{ show?.title }}
           </h2>
