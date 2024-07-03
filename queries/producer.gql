@@ -15,6 +15,8 @@ query Producer($slug: String) {
           title
           date
           slug
+          live
+          link
           audio {
             id
           }

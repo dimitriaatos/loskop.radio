@@ -1,5 +1,5 @@
 <template>
-  <div class="meta user-select-none" v-if="showSelected">
+  <div class="meta user-select-none" v-show="showSelected">
     <audio
       ref="audio"
       autoplay

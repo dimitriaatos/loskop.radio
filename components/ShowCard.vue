@@ -25,7 +25,7 @@
       </div>
       <button class="play" @click="playPause(show as Show)">
         <Icon
-          v-if="!thisIsPlaying"
+          v-if="!isThisPlaying(show?.id as string)"
           name="i-ic-baseline-play-arrow"
           size="3em"
           mode="svg"
@@ -43,14 +43,8 @@ import type { Show } from "~/types";
 
 const store = usePlayerStore();
 const { playPause, isThisPlaying } = store;
-const { isPlaying } = storeToRefs(store);
 
 const { show } = defineProps<{ show: Show }>();
-const thisIsPlaying = ref(false);
-
-watch(isPlaying, () => {
-  thisIsPlaying.value = isThisPlaying(show?.id || "");
-});
 
 const producers = computed(() =>
   show?.producers?.map((p) => {
