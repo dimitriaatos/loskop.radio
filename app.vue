@@ -4,12 +4,6 @@
       <NuxtPage />
     </NuxtLayout>
     <LoskopPlayer class="player" />
-    <component
-      is="script"
-      src="https://gc.zgo.at/count.js"
-      async="true"
-      data-goatcounter="https://loskopradio.goatcounter.com/count"
-    />
   </div>
 </template>
 
