@@ -1,7 +1,11 @@
 <template>
   <main>
     <img
-      :src="assets + removeFileExtension(home?.image?.filename_disk || '')"
+      :src="
+        imageFallback(
+          assets + removeFileExtension(home?.image?.filename_disk || '')
+        )
+      "
     />
     <div class="content" v-html="pToSpan(home?.description || '')" />
   </main>
@@ -10,7 +14,7 @@
 
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
-import { removeFileExtension } from "~/assets/helpers";
+import { imageFallback, removeFileExtension } from "~/assets/helpers";
 
 const pToSpan = (html: string): string => {
   return html?.replace(/<\/p>\n<p>/g, "<br/>")?.replace(/(<\/?)p>/g, "$1span>");

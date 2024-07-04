@@ -46,7 +46,7 @@
 
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
-import { removeFileExtension } from "~/assets/helpers";
+import { imageFallback, removeFileExtension } from "~/assets/helpers";
 
 const data = {
   mail: "radioloskop@gmail.com",
@@ -71,7 +71,7 @@ useHead({
   meta: [
     {
       property: "og:image",
-      content: assets + removeFileExtension(home?.image?.filename_disk || ""),
+      content: imageFallback(assets + removeFileExtension(home?.image?.filename_disk || "")),
     },
   ],
 });

@@ -2,7 +2,7 @@
   <li class="card">
     <NuxtLink :to="`/shows/${show?.slug}`">
       <div class="artwork">
-        <img :src="assets + show?.artwork?.id" alt="" class="image-fit" />
+        <img :src="imageFallback(assets + show?.artwork?.id)" alt="" class="image-fit" />
       </div>
     </NuxtLink>
     <div class="infoContainer">
@@ -38,6 +38,7 @@
 
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
+import { imageFallback } from "~/assets/helpers";
 import { usePlayerStore } from "~/store";
 import type { Show } from "~/types";
 

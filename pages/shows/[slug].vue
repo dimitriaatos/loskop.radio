@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
-import { throw404 } from "~/assets/helpers";
+import { imageFallback, throw404 } from "~/assets/helpers";
 import type { Show } from "~/types";
 
 const route = useRoute();
@@ -20,7 +20,7 @@ useHead({
   meta: [
     {
       property: "og:image",
-      content: assets + show?.artwork?.id,
+      content: imageFallback(assets + show?.artwork?.id),
     },
   ],
 });

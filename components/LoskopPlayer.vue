@@ -7,7 +7,7 @@
       crossorigin="anonymus"
       type="audio/mpeg"
       :src="
-        show?.live ? show?.link : (show?.audio && assets + show?.audio?.id) as string
+        show?.live ? show?.link : (show?.audio && imageFallback(assets + show?.audio?.id)) as string
       "
       @playing="state.loading = false"
       @waiting="state.loading = true"
@@ -80,6 +80,7 @@
 import { duration } from "duration-pretty";
 import { storeToRefs } from "pinia";
 import { assets } from "~/assets/constants";
+import { imageFallback } from "~/assets/helpers";
 import mediaNotification, {
   chromeMetaAdaptor,
 } from "~/assets/mediaNotification";

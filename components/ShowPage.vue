@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="artwork">
-      <img :src="assets + show?.artwork?.id" class="image-fit" />
+      <img :src="imageFallback(assets + show?.artwork?.id)" class="image-fit" />
     </div>
     <div class="infoContainer">
       <div class="playerContainer">
@@ -14,12 +14,7 @@
                 size="2em"
                 mode="svg"
               />
-              <Icon
-                v-else
-                name="i-ic-baseline-pause"
-                size="2em"
-                mode="svg"
-              />
+              <Icon v-else name="i-ic-baseline-pause" size="2em" mode="svg" />
             </button>
           </div>
           <div class="info">
@@ -59,7 +54,11 @@
       target="_blank"
       class="attachment"
     >
-      <Icon name="i-ic-outline-insert-drive-file" size="2em" mode="svg" />Program Notes
+      <Icon
+        name="i-ic-outline-insert-drive-file"
+        size="2em"
+        mode="svg"
+      />Program Notes
     </a>
     <slot />
     <div class="space" />
@@ -71,6 +70,7 @@ import { format } from "date-fns";
 import { duration } from "duration-pretty";
 import { computed } from "vue";
 import { assets } from "~/assets/constants";
+import { imageFallback } from "~/assets/helpers";
 import { usePlayerStore } from "~/store";
 import type { Show } from "~/types";
 

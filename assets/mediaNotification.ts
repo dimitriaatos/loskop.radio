@@ -1,5 +1,6 @@
 import { assets } from "~/assets/constants";
 import type { Show } from "~/types";
+import { imageFallback } from "./helpers";
 
 const chromeMetaAdaptor = (show: Show): MediaMetadataInit => ({
   title: show?.title || undefined,
@@ -14,7 +15,7 @@ const chromeMetaAdaptor = (show: Show): MediaMetadataInit => ({
   album: "Loskop Radio",
   artwork: [
     {
-      src: assets + show?.artwork?.id || "",
+      src: imageFallback(assets + show?.artwork?.id),
       sizes: "512x512",
     },
   ],

@@ -2,7 +2,7 @@
   <main>
     <div class="producer">
       <img
-        :src="(producer?.avatar && assets + producer?.avatar?.id) as string"
+        :src="(producer?.avatar && imageFallback(assets + producer?.avatar?.id)) as string"
         class="image-fit avatar"
       />
       <h1>{{ producer?.first_name }} {{ producer?.last_name }}</h1>
@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
+import { imageFallback } from "~/assets/helpers";
 import type { Show } from "~/types";
 
 const route = useRoute();
