@@ -1,20 +1,20 @@
 <template>
-  <div class="meta user-select-none" v-show="showSelected">
+  <div class="meta user-select-none" v-if="show !== undefined">
     <audio
       ref="audio"
       autoplay
       preload="metadata"
       crossorigin="anonymus"
       type="audio/mpeg"
-      :src="
-        show?.live ? show?.link : (show?.audio && imageFallback(assets + show?.audio?.id)) as string
-      "
+      :src="show.live ? show.link : assets + show.audio.id"
       @playing="state.loading = false"
       @waiting="state.loading = true"
       @play="isPlaying || playPause()"
       @pause="isPlaying && playPause()"
+      @timeupdate="if (!state.skipping && audio) state.ms = audio?.currentTime;"
+      @loadedmetadata="if (audio?.duration) state.max = audio?.duration;"
     />
-    <hr :class="{ live: show?.live }" />
+    <hr :class="{ live: show.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
       <Icon
@@ -30,7 +30,7 @@
         {{ show.title }}
       </NuxtLink>
     </div>
-    <div v-if="show?.live" class="producers">
+    <div v-if="show.live" class="producers">
       LIVE NOW!
       <span class="blink">
         <div class="dot" />
@@ -40,14 +40,14 @@
       by
       <NuxtLink
         v-for="producer in producers"
-        :key="producer?.id || ''"
-        :to="`/producers/${producer?.slug}/`"
+        :key="producer.id"
+        :to="`/producers/${producer.slug}/`"
       >
         {{ producer?.first_name }} {{ producer?.last_name }}
       </NuxtLink>
     </div>
     <div />
-    <div v-if="show?.live" class="progressBar live" />
+    <div v-if="show.live" class="progressBar live" />
     <input
       v-else
       ref="progressBar"
@@ -58,7 +58,7 @@
       :max="state.max"
       @change="timeChange"
     />
-    <div v-if="!show?.live" class="time">
+    <div v-if="!show.live" class="time">
       <span class="current">{{ formattedTime }}</span
       >/{{ length }}
     </div>
@@ -80,24 +80,25 @@
 import { duration } from "duration-pretty";
 import { storeToRefs } from "pinia";
 import { assets } from "~/assets/constants";
-import { imageFallback } from "~/assets/helpers";
 import mediaNotification, {
   chromeMetaAdaptor,
 } from "~/assets/mediaNotification";
 import { usePlayerStore } from "~/store";
-import type { Show } from "~/types";
+import type { NestedProducer, BaseProducer } from "~/schema";
 
 const store = usePlayerStore();
 const { playPause } = store;
 const { show, isPlaying } = storeToRefs(store);
 
 const producers = computed(() =>
-  show?.value?.producers?.map((p: any) => {
-    return p?.producers_id;
-  })
+  show.value !== undefined
+    ? show.value.producers.map((p: NestedProducer): BaseProducer => {
+        return p.producers_id;
+      })
+    : []
 );
 
-const audio = ref<HTMLAudioElement>();
+const audio = ref<HTMLAudioElement | undefined>();
 const progressBar = ref<Element>();
 
 type State = {
@@ -120,31 +121,20 @@ const formattedTime = computed(() =>
 
 const length = computed(() => duration(state.max, "seconds").format("H:mm:ss"));
 
-const showSelected = computed(() => show.value?.slug != "");
-
-watch(show, (val) => {
-  mediaNotification(chromeMetaAdaptor(val as Show));
+watch<typeof show.value>(show, (val: typeof show.value) => {
+  if (val) mediaNotification(chromeMetaAdaptor(val));
 });
 
 watch(isPlaying, (val, oldVal) => {
   if (audio.value && val != oldVal) {
     audio.value[val ? "play" : "pause"]();
     audio.value.addEventListener("canplaythrough", () => {
-      isPlaying && audio?.value?.play;
+      if (isPlaying && audio.value) audio.value.play();
     });
   }
 });
 
 onMounted(() => {
-  if (audio.value) {
-    audio.value?.addEventListener("timeupdate", () => {
-      if (!state.skipping) state.ms = audio?.value?.currentTime as number;
-    });
-    audio.value?.addEventListener("loadedmetadata", () => {
-      state.max = audio?.value?.duration as number;
-    });
-  }
-
   document.addEventListener("keydown", (event) => {
     if (event.key == " ") {
       event.preventDefault();

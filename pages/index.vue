@@ -7,7 +7,7 @@
         )
       "
     />
-    <div class="content" v-html="pToSpan(home?.description || '')" />
+    <article class="content" v-html="pToSpan(home?.description || '')" />
   </main>
   <div class="space" />
 </template>
@@ -15,13 +15,20 @@
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
 import { imageFallback, removeFileExtension } from "~/assets/helpers";
+import { homeSchema, homeQuery } from "~/schema";
+import type { Home } from "~/schema";
 
 const pToSpan = (html: string): string => {
   return html?.replace(/<\/p>\n<p>/g, "<br/>")?.replace(/(<\/?)p>/g, "$1span>");
 };
 
-const response = await GqlHome();
-const { home } = response.items || {};
+const { $directus } = useNuxtApp();
+const { data } = await useAsyncData("about", () => {
+	return $directus.query<{ items: { home: Home } }>(homeQuery);
+});
+
+const home = homeSchema.parse(data.value?.items?.home);
+
 useHead({
   title: "Loskop Radio",
   meta: [

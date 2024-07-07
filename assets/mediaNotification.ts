@@ -1,21 +1,22 @@
 import { assets } from "~/assets/constants";
-import type { Show } from "~/types";
+import type { NestedProducer } from "~/schema";
+import type { Show } from "~/schema";
 import { imageFallback } from "./helpers";
 
 const chromeMetaAdaptor = (show: Show): MediaMetadataInit => ({
-  title: show?.title || undefined,
-  artist: show?.producers
-    ?.map(
-      (p) =>
-        `${p?.producers_id?.first_name || ""} ${
-          p?.producers_id?.last_name || ""
+  title: show.title,
+  artist: show.producers
+    .map(
+      (p: NestedProducer): string =>
+        `${p.producers_id.first_name || ""} ${
+          p.producers_id.last_name || ""
         }`
     )
     .join(", "),
   album: "Loskop Radio",
   artwork: [
     {
-      src: imageFallback(assets + show?.artwork?.id),
+      src: imageFallback(assets + show?.artwork.id),
       sizes: "512x512",
     },
   ],

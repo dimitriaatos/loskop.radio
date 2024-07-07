@@ -3,11 +3,17 @@
 </template>
 
 <script setup lang="ts">
-import type { Show } from "~/types";
+import type { Show } from "~/schema";
+import { showQueries, showSchema } from "~/schema";
 
-const response = await GqlShow({ slug: "generative-radio" });
+const { $directus } = useNuxtApp();
+const { data } = await useAsyncData("generative-radio", () => {
+  return $directus.query<{ items: { shows: Show[] } }>(showQueries.show, {
+    slug: "generative-radio",
+  });
+});
 
-const show: Show = response?.items?.shows?.[0] as Show;
+const show: Show = showSchema.parse(data.value?.items?.shows?.[0]);
 
 useHead({
   title: "Generative radio - Loskop",

@@ -33,12 +33,13 @@
 </template>
 
 <script setup lang="ts">
-import path from "path";
+// import path from "path";
 import { useRoute } from "vue-router";
 const route = useRoute();
 
-const sel = (href: string): boolean =>
-  path.normalize(route.path).includes(path.normalize(href));
+const sel = (href: string): boolean => {
+  return route.path.replaceAll("/", "") === href;
+};
 </script>
 
 <style>

@@ -1,36 +1,24 @@
 import { defineStore } from "pinia";
-import type { Show } from "~/types";
+import type { Show } from "~/schema";
 
 export const usePlayerStore = defineStore("player", () => {
-  const show = ref<Show>({
-    id: "",
-    title: "",
-    date: "",
-    slug: "",
-    description: "",
-    producers: [],
-    artwork: {
-      id: "",
-    },
-    audio: {
-      id: "",
-    },
-  });
+  const show = ref<Show | undefined>();
 
-  const isPlaying = ref(false);
+  const isPlaying = ref<boolean>(false);
 
-  const play = (playState: boolean) => {
+  const play = (playState: boolean): void => {
     isPlaying.value = playState;
   };
 
-  const playPause = (newShow?: Show) => {
-    const hasNewShow = newShow && show.value?.id !== newShow.id;
+  const playPause = (newShow?: Show): void => {
+    const hasNewShow = newShow && (!show.value || show.value.id !== newShow.id);
     if (hasNewShow) show.value = newShow;
     play(hasNewShow ? true : !isPlaying.value);
   };
 
-  const isThisPlaying = (id: string) => {
-    return isPlaying.value ? show.value?.id == id : false;
+  const isThisPlaying = (id: string): boolean => {
+		if (!show.value) return false
+    return isPlaying.value ? show.value.id == id : false;
   };
 
   return { show, isPlaying, play, playPause, isThisPlaying };

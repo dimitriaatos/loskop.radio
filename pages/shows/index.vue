@@ -1,10 +1,6 @@
 <template>
   <ul>
-    <ShowCard
-      v-for="show in (shows as Show[])"
-      :key="(show?.id as string)"
-      :show="show"
-    />
+    <ShowCard v-for="show in shows" :key="show.id" :show="show" />
   </ul>
   <div class="space" />
 </template>
@@ -12,13 +8,19 @@
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
 import { imageFallback, removeFileExtension } from "~/assets/helpers";
-import type { Show } from "~/types";
+import type { Home, Show } from "~/schema";
+import { showsSchema, showQueries, homeSchema } from "~/schema";
 
-const response = await GqlShows({
-  live: false,
+const { $directus } = useNuxtApp();
+const { data } = await useAsyncData("shows", () => {
+  return $directus.query<{ items: { shows: Show[]; home: Home } }>(
+    showQueries.shows,
+    { live: false }
+  );
 });
 
-const { home, shows } = response?.items || {};
+const shows = showsSchema.parse(data.value?.items?.shows);
+const home = homeSchema.parse(data.value?.items?.home);
 
 useHead({
   title: "All shows - Loskop",

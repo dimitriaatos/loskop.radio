@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="description" v-html="about?.description" />
+    <article class="description" v-html="about?.description" />
     <div class="contactContainer">
       <div class="contact">
         <img src="./../assets/scissors.png" class="scissors" />
@@ -47,8 +47,10 @@
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
 import { imageFallback, removeFileExtension } from "~/assets/helpers";
+import type { About, Home } from "~/schema";
+import { aboutSchema, aboutQuery, homeSchema } from "~/schema";
 
-const data = {
+const info = {
   mail: "radioloskop@gmail.com",
   paypal: "https://www.paypal.com/paypalme/kedimura",
   facebook: "https://www.facebook.com/loskop.radio",
@@ -61,17 +63,24 @@ const data = {
   subStatus: "SUBSCRIBE!",
 };
 
-const { mail, paypal, facebook, mixcloud, developer } = data;
+const { mail, paypal, facebook, mixcloud, developer } = info;
 
-const response = await GqlAbout();
-const { home, about } = response?.items || {};
+const { $directus } = useNuxtApp();
+const { data } = await useAsyncData("about", () => {
+  return $directus.query<{ items: { about: About; home: Home } }>(aboutQuery);
+});
+
+const about = aboutSchema.parse(data.value?.items?.about);
+const home = homeSchema.parse(data.value?.items?.home);
 
 useHead({
   title: "About Loskop",
   meta: [
     {
       property: "og:image",
-      content: imageFallback(assets + removeFileExtension(home?.image?.filename_disk || "")),
+      content: imageFallback(
+        assets + removeFileExtension(home.image?.filename_disk || "")
+      ),
     },
   ],
 });

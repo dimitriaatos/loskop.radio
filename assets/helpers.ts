@@ -12,3 +12,5 @@ export const throw404 = (condition: boolean): void => {
 export const imageFallback = (path: string): string => {
 	return path !== assets ? path : "/loskop_face.jpg"
 }
+
+export const gql = String.raw

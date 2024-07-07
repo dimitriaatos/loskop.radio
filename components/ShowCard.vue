@@ -1,31 +1,35 @@
 <template>
   <li class="card">
-    <NuxtLink :to="`/shows/${show?.slug}`">
+    <NuxtLink :to="`/shows/${show.slug}`">
       <div class="artwork">
-        <img :src="imageFallback(assets + show?.artwork?.id)" alt="" class="image-fit" />
+        <img
+          :src="imageFallback(assets + show?.artwork.id)"
+          alt=""
+          class="image-fit"
+        />
       </div>
     </NuxtLink>
     <div class="infoContainer">
       <div class="info">
-        <NuxtLink class="los" :to="`/shows/${show?.slug}`">
+        <NuxtLink class="los" :to="`/shows/${show.slug}`">
           <h2 class="title">
-            {{ show?.title }}
+            {{ show.title }}
           </h2>
         </NuxtLink>
         <div class="producers">
           by
           <NuxtLink
             v-for="producer in producers"
-            :key="(producer?.id as string)"
-            :to="`/producers/${producer?.slug}/`"
+            :key="producer.id"
+            :to="`/producers/${producer.slug}/`"
           >
             {{ producer?.first_name }} {{ producer?.last_name }}
           </NuxtLink>
         </div>
       </div>
-      <button class="play" @click="playPause(show as Show)">
+      <button class="play" @click="playPause(show)">
         <Icon
-          v-if="!isThisPlaying(show?.id as string)"
+          v-if="!isThisPlaying(show.id)"
           name="i-ic-baseline-play-arrow"
           size="3em"
           mode="svg"
@@ -40,7 +44,7 @@
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import { usePlayerStore } from "~/store";
-import type { Show } from "~/types";
+import type { Show, NestedProducer, BaseProducer } from "~/schema";
 
 const store = usePlayerStore();
 const { playPause, isThisPlaying } = store;
@@ -48,8 +52,8 @@ const { playPause, isThisPlaying } = store;
 const { show } = defineProps<{ show: Show }>();
 
 const producers = computed(() =>
-  show?.producers?.map((p) => {
-    return p?.producers_id;
+  show.producers.map((p: NestedProducer): BaseProducer => {
+    return p.producers_id;
   })
 );
 </script>

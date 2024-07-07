@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="artwork">
-      <img :src="imageFallback(assets + show?.artwork?.id)" class="image-fit" />
+      <img :src="imageFallback(assets + show.artwork.id)" class="image-fit" />
     </div>
     <div class="infoContainer">
       <div class="playerContainer">
@@ -9,7 +9,7 @@
           <div class="playContainer">
             <button class="play" @click="playPause(show)">
               <Icon
-                v-if="!isThisPlaying(show?.id as string)"
+                v-if="!isThisPlaying(show.id)"
                 name="i-ic-baseline-play-arrow"
                 size="2em"
                 mode="svg"
@@ -19,26 +19,22 @@
           </div>
           <div class="info">
             <div class="dateDuration">
-              <div class="date">
-                {{
-                  show?.id === "generative"
-                    ? show.date
-                    : formatDate(show?.date as string)
-                }}
+              <div class="date" v-if="!show.live">
+                {{ formatDate(show.date) }}
               </div>
-              <div v-if="!show?.live" class="duration">
+              <div v-if="!show.live" class="duration">
                 {{ formatedDuration }}
               </div>
             </div>
             <h1>
-              {{ show?.title }}
+              {{ show.title }}
             </h1>
             <div class="producers">
               by
               <NuxtLink
                 v-for="producer in producers"
-                :key="producer?.id as string"
-                :to="`/producers/${producer?.slug}/`"
+                :key="producer.id"
+                :to="`/producers/${producer.slug}/`"
               >
                 {{ producer?.first_name }} {{ producer?.last_name }}
               </NuxtLink>
@@ -47,10 +43,10 @@
         </div>
       </div>
     </div>
-    <div class="description" v-html="show?.description" />
+    <article class="description" v-html="show.description" />
     <a
-      v-if="show?.attachment && show?.attachment.id"
-      :href="assets + show?.attachment.id"
+      v-if="show.attachment && show.attachment.id"
+      :href="assets + show.attachment.id"
       target="_blank"
       class="attachment"
     >
@@ -72,15 +68,15 @@ import { computed } from "vue";
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import { usePlayerStore } from "~/store";
-import type { Show } from "~/types";
+import type { Show, NestedProducer, BaseProducer } from "~/schema";
 
 const { playPause, isThisPlaying } = usePlayerStore();
 
 const { show } = defineProps<{ show: Show }>();
 
 const producers = computed(() =>
-  show?.producers?.map((p) => {
-    return p?.producers_id;
+  show.producers.map((p: NestedProducer): BaseProducer => {
+    return p.producers_id;
   })
 );
 
