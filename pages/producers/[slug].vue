@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
-import type { Producer, Show, NestedShow } from "~/schema";
+import type { NestedShow, Producer } from "~/schema";
 import { producerQueries, producerSchema } from "~/schema";
 
 const route = useRoute();

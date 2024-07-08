@@ -58,8 +58,8 @@ import { duration } from "duration-pretty";
 import { computed } from "vue";
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
+import type { BaseProducer, NestedProducer, Show } from "~/schema";
 import { usePlayerStore } from "~/store";
-import type { Show, NestedProducer, BaseProducer } from "~/schema";
 
 const { playPause, isThisPlaying } = usePlayerStore();
 

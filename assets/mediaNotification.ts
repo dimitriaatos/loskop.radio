@@ -1,6 +1,5 @@
 import { assets } from "~/assets/constants";
-import type { NestedProducer } from "~/schema";
-import type { Show } from "~/schema";
+import type { NestedProducer, Show } from "~/schema";
 import { imageFallback } from "./helpers";
 
 const chromeMetaAdaptor = (show: Show): MediaMetadataInit => ({

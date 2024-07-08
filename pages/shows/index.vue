@@ -9,7 +9,7 @@
 import { assets } from "~/assets/constants";
 import { imageFallback, removeFileExtension } from "~/assets/helpers";
 import type { Home, Show } from "~/schema";
-import { showsSchema, showQueries, homeSchema } from "~/schema";
+import { homeSchema, showQueries, showsSchema } from "~/schema";
 
 const { $directus } = useNuxtApp();
 const { data } = await useAsyncData("shows", () => {

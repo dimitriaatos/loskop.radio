@@ -42,8 +42,8 @@
 <script setup lang="ts">
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
+import type { BaseProducer, NestedProducer, Show } from "~/schema";
 import { usePlayerStore } from "~/store";
-import type { Show, NestedProducer, BaseProducer } from "~/schema";
 
 const store = usePlayerStore();
 const { playPause, isThisPlaying } = store;

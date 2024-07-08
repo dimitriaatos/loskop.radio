@@ -48,7 +48,7 @@
 import { assets } from "~/assets/constants";
 import { imageFallback, removeFileExtension } from "~/assets/helpers";
 import type { About, Home } from "~/schema";
-import { aboutSchema, aboutQuery, homeSchema } from "~/schema";
+import { aboutQuery, aboutSchema, homeSchema } from "~/schema";
 
 const info = {
   mail: "radioloskop@gmail.com",

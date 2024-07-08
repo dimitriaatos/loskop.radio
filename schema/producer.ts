@@ -1,7 +1,7 @@
 import { z } from "zod";
-import { baseShowSchema } from "./show";
-import type { NestedShow } from "./show";
 import { gql } from "~/assets/helpers";
+import type { NestedShow } from "./show";
+import { baseShowSchema } from "./show";
 
 export const baseProducerSchema = z.object({
   id: z.string(),
