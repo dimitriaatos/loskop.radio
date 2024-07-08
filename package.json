@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@directus/sdk": "^16.1.1",
-    "@iconify-json/ic": "^1.1.17",
+    "@mdi/font": "^7.4.47",
     "@nuxt/icon": "1.0.0",
     "@pinia/nuxt": "^0.5.1",
     "date-fns": "^3.6.0",
@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "typescript": "^5.5.3",
-    "vue-tsc": "^2.0.26"
+    "vite-plugin-vuetify": "^2.0.3",
+    "vue-tsc": "^2.0.26",
+    "vuetify": "^3.6.11"
   }
 }

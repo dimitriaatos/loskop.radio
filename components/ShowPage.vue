@@ -8,13 +8,8 @@
         <div class="player">
           <div class="playContainer">
             <button class="play" @click="playPause(show)">
-              <Icon
-                v-if="!isThisPlaying(show.id)"
-                name="i-ic-baseline-play-arrow"
-                size="2em"
-                mode="svg"
-              />
-              <Icon v-else name="i-ic-baseline-pause" size="2em" mode="svg" />
+              <v-icon v-if="!isThisPlaying(show.id)" icon="mdi-play" size="3.5rem"></v-icon>
+              <v-icon v-else icon="mdi-pause" size="3.5rem"></v-icon>
             </button>
           </div>
           <div class="info">
@@ -50,11 +45,7 @@
       target="_blank"
       class="attachment"
     >
-      <Icon
-        name="i-ic-outline-insert-drive-file"
-        size="2em"
-        mode="svg"
-      />Program Notes
+      <v-icon icon="mdi-file-outline"></v-icon>Program Notes
     </a>
     <slot />
     <div class="space" />

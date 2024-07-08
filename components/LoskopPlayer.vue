@@ -17,13 +17,8 @@
     <hr :class="{ live: show.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
-      <Icon
-        v-else-if="!isPlaying"
-        name="i-ic-baseline-play-arrow"
-        size="3em"
-        mode="svg"
-      />
-      <Icon v-else name="i-ic-baseline-pause" size="3em" mode="svg" />
+      <v-icon v-if="!isPlaying" icon="mdi-play" size="3rem"></v-icon>
+      <v-icon v-else icon="mdi-pause" size="3rem"></v-icon>
     </button>
     <div class="title">
       <NuxtLink :to="`/shows/${show.slug}`">

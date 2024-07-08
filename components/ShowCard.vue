@@ -28,13 +28,12 @@
         </div>
       </div>
       <button class="play" @click="playPause(show)">
-        <Icon
+        <v-icon
           v-if="!isThisPlaying(show.id)"
-          name="i-ic-baseline-play-arrow"
-          size="3em"
-          mode="svg"
-        />
-        <Icon v-else name="i-ic-baseline-pause" size="3em" mode="svg" />
+          icon="mdi-play"
+          size="3rem"
+        ></v-icon>
+        <v-icon v-else icon="mdi-pause" size="3rem"></v-icon>
       </button>
     </div>
   </li>
