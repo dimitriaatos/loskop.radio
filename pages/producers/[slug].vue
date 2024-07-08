@@ -34,7 +34,7 @@ const route = useRoute();
 
 const { $directus } = useNuxtApp();
 
-const { data } = await useAsyncData("producer", () => {
+const { data } = await useAsyncData(`producer/${route.params.slug}`, () => {
   return $directus.query<{ items: { producers: Producer[] } }>(
     producerQueries.producer,
     {
