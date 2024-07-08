@@ -3,9 +3,11 @@ import { gql } from "~/assets/helpers";
 
 export const homeSchema = z.object({
   description: z.string().optional(),
-  image: z.object({
-    filename_disk: z.string(),
-  }).optional(),
+  image: z
+    .object({
+      filename_disk: z.string(),
+    })
+    .optional(),
 });
 
 export type Home = z.infer<typeof homeSchema>;

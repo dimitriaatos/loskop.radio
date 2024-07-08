@@ -17,7 +17,7 @@ export const usePlayerStore = defineStore("player", () => {
   };
 
   const isThisPlaying = (id: string): boolean => {
-		if (!show.value) return false
+    if (!show.value) return false;
     return isPlaying.value ? show.value.id == id : false;
   };
 

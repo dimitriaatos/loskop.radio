@@ -7,16 +7,17 @@ export const aboutSchema = z.object({
 
 export type About = z.infer<typeof aboutSchema>;
 
-export const aboutQuery = gql`query About{
-  items {
-    home {
-      image {
-        filename_disk
+export const aboutQuery = gql`
+  query About {
+    items {
+      home {
+        image {
+          filename_disk
+        }
+      }
+      about {
+        description
       }
     }
-    about {
-      description
-    }
   }
-}
 `;

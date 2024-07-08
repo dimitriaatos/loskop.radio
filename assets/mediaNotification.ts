@@ -8,9 +8,7 @@ const chromeMetaAdaptor = (show: Show): MediaMetadataInit => ({
   artist: show.producers
     .map(
       (p: NestedProducer): string =>
-        `${p.producers_id.first_name || ""} ${
-          p.producers_id.last_name || ""
-        }`
+        `${p.producers_id.first_name || ""} ${p.producers_id.last_name || ""}`
     )
     .join(", "),
   album: "Loskop Radio",
