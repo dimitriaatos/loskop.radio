@@ -23,6 +23,9 @@ importers:
       date-fns:
         specifier: ^3.6.0
         version: 3.6.0
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
       duration-pretty:
         specifier: ^0.1.1
         version: 0.1.1

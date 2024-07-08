@@ -15,6 +15,7 @@
     "@nuxt/icon": "1.0.0",
     "@pinia/nuxt": "^0.5.1",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.4.5",
     "duration-pretty": "^0.1.1",
     "nuxt": "^3.12.3",
     "pinia": "^2.1.7",
