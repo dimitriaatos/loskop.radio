@@ -23,7 +23,7 @@ const pToSpan = (html: string): string => {
 };
 
 const { $directus } = useNuxtApp();
-const { data } = await useAsyncData("about", () => {
+const { data } = await useAsyncData("home", () => {
 	return $directus.query<{ items: { home: Home } }>(homeQuery);
 });
 

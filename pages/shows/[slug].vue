@@ -11,7 +11,7 @@ import { showQueries, showSchema } from "~/schema";
 const route = useRoute();
 
 const { $directus } = useNuxtApp();
-const { data } = await useAsyncData("show", () => {
+const { data } = await useAsyncData(`show/${route.params.slug}`, () => {
   return $directus.query<{ items: { shows: Show[] } }>(showQueries.show, {
     slug: route.params.slug,
   });
