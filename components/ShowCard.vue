@@ -28,18 +28,16 @@
         </div>
       </div>
       <button class="play" @click="playPause(show)">
-        <v-icon
-          v-if="!isThisPlaying(show.id)"
-          icon="mdi-play"
-          size="3rem"
-        ></v-icon>
-        <v-icon v-else icon="mdi-pause" size="3rem"></v-icon>
+        <PlayIcon v-if="!isThisPlaying(show.id)" :size="50"></PlayIcon>
+        <PauseIcon v-else :size="50"></PauseIcon>
       </button>
     </div>
   </li>
 </template>
 
 <script setup lang="ts">
+import PauseIcon from "vue-material-design-icons/Pause.vue";
+import PlayIcon from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import type { BaseProducer, NestedProducer, Show } from "~/schema";

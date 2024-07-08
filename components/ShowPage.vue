@@ -8,8 +8,8 @@
         <div class="player">
           <div class="playContainer">
             <button class="play" @click="playPause(show)">
-              <v-icon v-if="!isThisPlaying(show.id)" icon="mdi-play" size="3.5rem"></v-icon>
-              <v-icon v-else icon="mdi-pause" size="3.5rem"></v-icon>
+              <PlayIcon v-if="!isThisPlaying(show.id)" :size="60"></PlayIcon>
+              <PauseIcon v-else :size="60"></PauseIcon>
             </button>
           </div>
           <div class="info">
@@ -45,7 +45,7 @@
       target="_blank"
       class="attachment"
     >
-      <v-icon icon="mdi-file-outline"></v-icon>Program Notes
+      <FileOutlineIcon :size="25"></FileOutlineIcon>Program Notes
     </a>
     <slot />
     <div class="space" />
@@ -56,6 +56,9 @@
 import { format } from "date-fns";
 import { duration } from "duration-pretty";
 import { computed } from "vue";
+import FileOutlineIcon from "vue-material-design-icons/FileOutline.vue";
+import PauseIcon from "vue-material-design-icons/Pause.vue";
+import PlayIcon from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import type { BaseProducer, NestedProducer, Show } from "~/schema";

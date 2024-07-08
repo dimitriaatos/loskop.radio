@@ -17,8 +17,8 @@
     <hr :class="{ live: show.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
-      <v-icon v-if="!isPlaying" icon="mdi-play" size="3rem"></v-icon>
-      <v-icon v-else icon="mdi-pause" size="3rem"></v-icon>
+      <PlayIcon v-if="!isPlaying" :size="50"></PlayIcon>
+      <PauseIcon v-else :size="50"></PauseIcon>
     </button>
     <div class="title">
       <NuxtLink :to="`/shows/${show.slug}`">
@@ -74,12 +74,14 @@
 <script setup lang="ts">
 import { duration } from "duration-pretty";
 import { storeToRefs } from "pinia";
+import PauseIcon from "vue-material-design-icons/Pause.vue";
+import PlayIcon from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import mediaNotification, {
-  chromeMetaAdaptor,
+chromeMetaAdaptor,
 } from "~/assets/mediaNotification";
+import type { BaseProducer, NestedProducer } from "~/schema";
 import { usePlayerStore } from "~/store";
-import type { NestedProducer, BaseProducer } from "~/schema";
 
 const store = usePlayerStore();
 const { playPause } = store;
