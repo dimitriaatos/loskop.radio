@@ -17,7 +17,7 @@
     <hr :class="{ live: show.live }" />
     <button class="playPause" @click="playPause()">
       <div v-if="state.loading" class="loading" />
-      <PlayIcon v-if="!isPlaying" :size="50"></PlayIcon>
+      <PlayIcon v-else-if="!isPlaying" :size="50"></PlayIcon>
       <PauseIcon v-else :size="50"></PauseIcon>
     </button>
     <div class="title">
