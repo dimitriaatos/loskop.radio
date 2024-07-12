@@ -8,7 +8,7 @@
       type="audio/mpeg"
       :src="show.live ? show.link : assets + show.audio.id"
       @waiting="state.loading = true"
-			@loadstart="state.loading = true"
+      @loadstart="state.loading = true"
       @canplaythrough="state.loading = false"
       @play="
         () => {
@@ -57,7 +57,9 @@
       :value="state.ms"
       min="0"
       :max="state.max"
-      @change="timeChange"
+      @mouseup="timeChange"
+      @input="dragChange"
+      @mousedown="state.skipping = true"
     />
     <div v-if="!show.live" class="time">
       <span class="current">{{ formattedTime }}</span
@@ -150,20 +152,15 @@ onMounted(() => {
       timeChange({ target: { value: (state.max * Number(event.key)) / 10 } });
     }
   });
-
-  if (progressBar.value) {
-    progressBar.value.addEventListener("mousedown", () => {
-      state.skipping = true;
-    });
-
-    progressBar.value.addEventListener("mouseup", () => {
-      state.skipping = false;
-    });
-  }
 });
 
 const timeChange = ({ target: { value } }: any) => {
   if (audio.value) audio.value.currentTime = value;
+  state.skipping = false;
+};
+
+const dragChange = ({ target: { value } }: any) => {
+  state.ms = Number(value);
 };
 
 const volumeChange = ({ target: { value } }: any) => {
