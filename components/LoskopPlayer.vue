@@ -57,9 +57,11 @@
       :value="state.ms"
       min="0"
       :max="state.max"
-      @mouseup="timeChange"
       @input="dragChange"
+      @mouseup="timeChange"
       @mousedown="state.skipping = true"
+      @touchend="timeChange"
+      @touchstart="state.skipping = true"
     />
     <div v-if="!show.live" class="time">
       <span class="current">{{ formattedTime }}</span
