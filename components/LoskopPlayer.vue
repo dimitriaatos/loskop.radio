@@ -7,9 +7,15 @@
       crossorigin="anonymus"
       type="audio/mpeg"
       :src="show.live ? show.link : assets + show.audio.id"
-      @playing="state.loading = false"
       @waiting="state.loading = true"
-      @play="isPlaying || playPause()"
+			@loadstart="state.loading = true"
+      @canplaythrough="state.loading = false"
+      @play="
+        () => {
+          isPlaying || playPause();
+          state.loading = false;
+        }
+      "
       @pause="isPlaying && playPause()"
       @timeupdate="if (!state.skipping && audio) state.ms = audio?.currentTime;"
       @loadedmetadata="if (audio?.duration) state.max = audio?.duration;"
@@ -78,7 +84,7 @@ import PauseIcon from "vue-material-design-icons/Pause.vue";
 import PlayIcon from "vue-material-design-icons/Play.vue";
 import { assets } from "~/assets/constants";
 import mediaNotification, {
-chromeMetaAdaptor,
+  chromeMetaAdaptor,
 } from "~/assets/mediaNotification";
 import type { BaseProducer, NestedProducer } from "~/schema";
 import { usePlayerStore } from "~/store";
