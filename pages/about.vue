@@ -8,24 +8,44 @@
         <a :href="paypal" target="_blank" class="button">SUPPORT US</a>
         <form
           class="subscribe"
-          action="https://tinyletter.com/loskopradio"
+          action="https://radio.us9.list-manage.com/subscribe/post?u=59db0d71d78ca57d2f7db9712&amp;id=f2f484aaf9&amp;f_id=00b1ffe3f0"
           method="post"
-          target="popupwindow"
-          onsubmit="window.open('https://tinyletter.com/loskopradio', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          target="_self"
         >
           <input
-            id="tlemail"
-            type="text"
+            type="email"
+            name="EMAIL"
             class="email"
-            name="email"
             placeholder="e-mail"
+            id="mce-EMAIL"
+            required
           />
-          <input type="hidden" value="1" name="embed" />
-          <input type="submit" class="submit" value="SUBSCRIBE!" />
+          <div aria-hidden="true" style="position: absolute; left: -5000px">
+            /* real people should not fill this in and expect good things - do
+            not remove this or risk form bot signups */
+            <input
+              type="text"
+              name="b_59db0d71d78ca57d2f7db9712_f2f484aaf9"
+              tabindex="-1"
+              value=""
+            />
+          </div>
+          <input
+            type="submit"
+            name="subscribe"
+            id="mc-embedded-subscribe"
+            class="submit"
+            value="SUBSCRIBE!"
+          />
         </form>
         <div class="social">
           <a :href="facebook" target="_blank" class="small button facebook"
             >f</a
+          >
+          <a :href="instagram" target="_blank" class="small button facebook"
+            >i</a
           >
           <a :href="mixcloud" target="_blank" class="button mixcloud"
             >Mixcloud</a
@@ -55,6 +75,7 @@ const info = {
   paypal: "https://www.paypal.com/paypalme/kedimura",
   facebook: "https://www.facebook.com/loskop.radio",
   mixcloud: "https://www.mixcloud.com/loskopradio/",
+  instagram: "https://www.instagram.com/loskop.radio/",
   developer: {
     slug: "dimitriaatos",
     first_name: "Dimitri Aatos",
@@ -63,7 +84,7 @@ const info = {
   subStatus: "SUBSCRIBE!",
 };
 
-const { mail, paypal, facebook, mixcloud, developer } = info;
+const { mail, paypal, facebook, instagram, mixcloud, developer } = info;
 
 const { $directus } = useNuxtApp();
 const { data } = await useAsyncData("about", () => {
