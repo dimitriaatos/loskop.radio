@@ -70,8 +70,7 @@ import { usePlayerStore } from "~/store";
 const imageParams =
   "?" +
   new URLSearchParams({
-    quality: "50",
-    width: "500",
+    width: "700",
   }).toString();
 
 const { playPause, isThisPlaying } = usePlayerStore();
