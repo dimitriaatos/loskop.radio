@@ -1,7 +1,10 @@
 <template>
   <main>
     <div class="artwork">
-      <img :src="imageFallback(assets + show.artwork.id)" class="image-fit" />
+      <img
+        :src="imageFallback(assets + show.artwork.id) + imageParams"
+        class="image-fit"
+      />
     </div>
     <div class="infoContainer">
       <div class="playerContainer">
@@ -63,6 +66,13 @@ import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import type { BaseProducer, NestedProducer, Show } from "~/schema";
 import { usePlayerStore } from "~/store";
+
+const imageParams =
+  "?" +
+  new URLSearchParams({
+    quality: "50",
+    width: "500",
+  }).toString();
 
 const { playPause, isThisPlaying } = usePlayerStore();
 

@@ -3,7 +3,7 @@
     <NuxtLink :to="`/shows/${show.slug}`">
       <div class="artwork">
         <img
-          :src="imageFallback(assets + show?.artwork.id)"
+          :src="imageFallback(assets + show?.artwork.id) + imageParams"
           alt=""
           class="image-fit"
         />
@@ -42,6 +42,13 @@ import { assets } from "~/assets/constants";
 import { imageFallback } from "~/assets/helpers";
 import type { BaseProducer, NestedProducer, Show } from "~/schema";
 import { usePlayerStore } from "~/store";
+
+const imageParams =
+  "?" +
+  new URLSearchParams({
+    quality: "50",
+    width: "400",
+  }).toString();
 
 const store = usePlayerStore();
 const { playPause, isThisPlaying } = store;
